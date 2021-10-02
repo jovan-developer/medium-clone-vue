@@ -54,9 +54,9 @@ export default {
   name: 'McvRegister',
   data() {
     return {
-      username: '',
       email: '',
-      password: ''
+      password: '',
+      username: ''
     }
   },
   computed: {
@@ -66,13 +66,12 @@ export default {
   },
   methods: {
     onSubmit() {
-      const data = {
+      console.log('submitted form')
+      this.$store.dispatch('register', {
         username: this.username,
         email: this.email,
         password: this.password
-      }
-      console.log('submitted form')
-      this.$store.dispatch('register', {...data})
+      })
     }
   }
 }
